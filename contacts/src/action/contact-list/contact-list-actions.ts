@@ -4,8 +4,6 @@ export const selectContact = (
   selectedContact: contact,
   contactNumber: number
 ) => {
-  window.console.log("from action");
-  window.console.log(selectedContact);
   return {
     payload: {
       currentContact: selectedContact,

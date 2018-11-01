@@ -2,16 +2,17 @@ import { IContactListState } from "./comb";
 import { contactTypes } from "../action/contact/contact-types";
 import contact from "../model/contact";
 
-const initialState: IContactListState = {
+export const contactInitialState: IContactListState = {
   contactList: []
 };
 export const contactListReducer = (
-  state: IContactListState = initialState,
+  state: IContactListState = contactInitialState,
   action: any
 ) => {
   switch (action.type) {
     case contactTypes.EDIT_CONTACT:
-      state.contactList[action.payload.contactIndex] = action.payload.contact;
+      state.contactList.splice(action.payload.contactIndex, 1);
+      state.contactList.push(action.payload.contact);
       return {
         ...state
       };
@@ -29,7 +30,6 @@ export const contactListReducer = (
           return -1;
         }
       });
-      window.console.log(state.contactList);
       return {
         ...state
       };

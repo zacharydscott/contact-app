@@ -10,8 +10,7 @@ import FormControl from "@material-ui/core/FormControl";
 import FormHelperText from "@material-ui/core/FormHelperText";
 import Input from "@material-ui/core/Input";
 import InputLabel from "@material-ui/core/InputLabel";
-// import { clearContact } from "../../../action/contact/contact-actions";
-// import AddIcon from "@material-ui/i"
+
 /**
  * This is the screen which displays the contacs, serving as a container
  * for the contact list, and the option to add a new user

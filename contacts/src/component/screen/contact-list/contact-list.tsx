@@ -23,7 +23,7 @@ interface IProps extends RouteComponentProps<any> {
   selectContact: (selectContact: contact, contactNumber: number) => any;
 }
 
-class ContactListScreen extends React.Component<IProps, any> {
+export class ContactListScreen extends React.Component<IProps, any> {
   constructor(props: any) {
     super(props);
   }

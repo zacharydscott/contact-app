@@ -3,7 +3,7 @@ import { contactTypes } from "../action/contact/contact-types";
 import { contactListTypes } from "../action/contact-list/contact-list-types";
 import Contact from "../model/contact";
 
-const initialState: IGlobalState = {
+export const initialState: IGlobalState = {
   errorMessage: "",
   contactIndex: 0,
   currentContact: new Contact("", "", "", "")
@@ -14,8 +14,6 @@ export const globalReducer = (
 ) => {
   switch (action.type) {
     case contactListTypes.SELECT_CONTACT:
-      window.console.log("reducer reached");
-      window.console.log(action);
       return {
         ...state,
         currentContact: action.payload.currentContact,

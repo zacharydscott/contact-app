@@ -5,12 +5,12 @@ import contact from "../../../model/contact";
 import { saveContact } from "../../../action/contact/contact-actions";
 import { RouteComponentProps } from "react-router-dom";
 import Button from "@material-ui/core/Button/Button";
-import SaveIcon from "@material-ui/icons/Save";
+import EditIcon from "@material-ui/icons/Create";
+import ReturnIcon from "@material-ui/icons/Undo";
 import DeleteIcon from "@material-ui/icons/Delete";
 import TextField from "@material-ui/core/TextField/TextField";
 import { deleteContact } from "../../../action/contact/contact-actions";
-// import { clearContact } from "../../../action/contact/contact-actions";
-// import AddIcon from "@material-ui/i"
+
 /**
  * This is the screen which displays the contacs, serving as a container
  * for the contact list, and the option to add a new user
@@ -36,8 +36,10 @@ class NewContact extends React.Component<IProps, any> {
     this.props.deleteContact(this.props.contactIndex);
     this.props.history.push("/");
   };
+  public return = (e: any) => {
+    this.props.history.push("/");
+  };
   public render() {
-    window.console.log(this.props.currentContact);
     return (
       <div>
         <h1>View Contact</h1>
@@ -47,8 +49,17 @@ class NewContact extends React.Component<IProps, any> {
             color="secondary"
             aria-label="Edit"
             onClick={this.editContact}
-          />
-
+          >
+            <EditIcon />
+          </Button>
+          <Button
+            variant="fab"
+            size="small"
+            aria-label="return"
+            onClick={this.return}
+          >
+            <ReturnIcon />
+          </Button>
           <Button
             variant="fab"
             aria-label="Delete"
@@ -86,10 +97,6 @@ class NewContact extends React.Component<IProps, any> {
             variant="outlined"
           />
           <br />
-          <Button variant="contained" size="small">
-            Save
-            <SaveIcon />
-          </Button>
         </form>
       </div>
     );
